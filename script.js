@@ -7,10 +7,10 @@ var characterSearchTerm = document.querySelector('#character-search-term')
 var formSubmitHandler = function (event) {
     event.preventDefault();
 
-    var character = characterInputEl.ariaValueMax.trim();
+    var character = characterInputEl.value.trim();
 
     if (character) {
-        getCharacterData(character);
+        getCharacter(character);
 
         marvelContainerEl.textContent = '';
         characterInputEl.value = '';
@@ -63,7 +63,7 @@ var displayCharacters = function (character, searchTerm) {
           statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
         }
     
-}
+}};
 
 
 // Use the function below for TV, Movies, Comics, ect
