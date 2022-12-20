@@ -575,7 +575,22 @@ var getCharacter = function (character) {
                 response.json().then(function (giphyData) {
                   console.log(giphyRequestUrl);
                   console.log(giphyData);
-                  console.log(giphyData.data.results[0]);
+                  //console.log(giphyData.data.results[0]);
+
+                  var GiphyArrayOfImages = giphyData.data; //the assumed array 
+                  for (let i = 0; i < 5; i++) {
+                      var img = document.createElement('img');
+                      var url = GiphyArrayOfImages[i].images.original.webp;
+                      img.src = url
+                      document.body.appendChild(img);         
+                    }
+                    //img.height = "45";
+                    //img.width = "50";
+                    //images.original.webp
+
+
+                  
+
                 }
                 )
               }
@@ -648,6 +663,5 @@ userFormEl.addEventListener("submit", formSubmitHandler);
 
 // console.log(character);
 // console.log(getFeaturedCharacters);
-
 
 
