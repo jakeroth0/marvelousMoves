@@ -507,6 +507,15 @@ var requestUrl =
   "&name=" +
   character;
 
+var giphyApiStart = "http://api.giphy.com/v1/gifs/search?q=";
+var giphyApiKey = "&api_key=BXBwpXYZHxzCHlnqldjZWRr0jdgEz2nJ";
+var giphyApiLimit = "&limit=5";
+var giphyRequestUrl = giphyApiStart + character + giphyApiKey + giphyApiLimit;
+
+
+// Original Fetch Function (convert from XHR to fetch)
+//xhr.done(function(data) { console.log("success got data", data); });
+
 // console.log(requestUrl);
 
 var character = characterInputEl.value.trim();
@@ -546,28 +555,44 @@ var getCharacter = function (character) {
     "&nameStartsWith=" +
     character;
 
-    fetch(requestUrl)
-     .then(function (response) {
-        
-        if (response.ok) {
+  fetch(requestUrl)
+    .then(function (response) {
+
+      if (response.ok) {
         response.json().then(function (data) {
-        displayCharacters(data.items, character);
-        console.log(requestUrl);
-        console.log(data.data.results[0].description);
-        var textDescription = document.createElement('div')
-        textDescription.textContent = data.data.results[0].description;
-        marvelContainerEl.appendChild(textDescription);
-      });
-      // const characterAttributes = results['data'].results[0],
-      // characterID = results['data'].results[0].id;
-      // let output = '';
+          displayCharacters(data.items, character);
+          console.log(requestUrl);
+          console.log(data.data.results[0].description);
+          var textDescription = document.createElement('div')
+          textDescription.textContent = data.data.results[0].description;
+          marvelContainerEl.appendChild(textDescription);
+          //Giphy Fetch 
+          var giphyRequestUrl = giphyApiStart + character + giphyApiKey + giphyApiLimit;
 
-     
+          fetch(giphyRequestUrl)
+            .then(function (response) {
+              if (response.ok) {
+                response.json().then(function (giphyData) {
+                  console.log(giphyRequestUrl);
+                  console.log(giphyData);
+                  console.log(giphyData.data.results[0]);
+                }
+                )
+              }
+            }
+            )
 
-    } else {
-      alert("Error: " + response.statusText);
-    }
-  });
+        });
+        // const characterAttributes = results['data'].results[0],
+        // characterID = results['data'].results[0].id;
+        // let output = '';
+
+
+
+      } else {
+        alert("Error: " + response.statusText);
+      }
+    });
 };
 
 var displayCharacters = function (character, searchTerm) {
@@ -623,3 +648,6 @@ userFormEl.addEventListener("submit", formSubmitHandler);
 
 // console.log(character);
 // console.log(getFeaturedCharacters);
+
+
+
