@@ -580,17 +580,16 @@ var getCharacter = function (character) {
                   var GiphyArrayOfImages = giphyData.data; //the assumed array 
                   for (let i = 0; i < 5; i++) {
                       var img = document.createElement('img');
-                      var url = GiphyArrayOfImages[i].images.original.webp;
+                      //Updated from using original to ensure width scaling.
+                      var url = GiphyArrayOfImages[i].images.fixed_width.webp;
                       img.src = url
+                      
                       document.body.appendChild(img);         
                     }
                     //img.height = "45";
                     //img.width = "50";
-                    //images.original.webp
-
-
+                    //data[i].images.original.webp
                   
-
                 }
                 )
               }
