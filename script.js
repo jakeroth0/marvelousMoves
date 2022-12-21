@@ -531,6 +531,8 @@ var character = characterInputEl.value.trim();
 var formSubmitHandler = function (event) {
   event.preventDefault();
 
+
+
   var character = characterInputEl.value.trim();
 
   if (character) {
@@ -554,6 +556,15 @@ var getCharacter = function (character) {
     hash +
     "&nameStartsWith=" +
     character;
+
+    // var thumbnail = document.createElement('img');
+    // thumbnail.remove('img');
+    // var img = document.createElement('img');
+    // img.remove('img');
+        var images = document.getElementsByClassName('giphyGifs');
+    while(images.length > 0) {
+        images[0].parentNode.removeChild(images[0]);
+        }
 
   fetch(requestUrl)
     .then(function (response) {
@@ -588,11 +599,12 @@ var getCharacter = function (character) {
                   var GiphyArrayOfImages = giphyData.data; //the assumed array 
                   for (let i = 0; i < 5; i++) {
                       var img = document.createElement('img');
+
                       //Updated from using original to ensure width scaling.
                       var url = GiphyArrayOfImages[i].images.fixed_width.webp;
                       img.src = url
                       
-                      document.body.appendChild(img);         
+                      document.body.appendChild(img).classList.add('giphyGifs');         
                     }
                     //img.height = "45";
                     //img.width = "50";
