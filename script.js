@@ -565,7 +565,15 @@ var getCharacter = function (character) {
           console.log(data.data.results[0].description);
           var textDescription = document.createElement('div')
           textDescription.textContent = data.data.results[0].description;
-          marvelContainerEl.appendChild(textDescription);
+          // marvelContainerEl.appendChild(textDescription);
+          // var thumbnail = document.createElement('img');
+          // var thumbnailUrl = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension;
+          // thumbnail.src = thumbnailUrl;
+          // marvelContainerEl.appendChild(thumbnail);
+          
+          console.log(data);
+          console.log(data.data.results[0].thumbnail.path);
+          console.log(data.data.results[0].thumbnail.extension);
           //Giphy Fetch 
           var giphyRequestUrl = giphyApiStart + character + giphyApiKey + giphyApiLimit;
 
