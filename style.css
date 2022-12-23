@@ -1,0 +1,10 @@
+.thumbnailBtn {
+    height: 200px;
+    width: 200px;
+    filter: grayscale(100%);
+}
+.thumbnailBtn:hover {
+    filter: grayscale(0%);
+    border: 5px solid red;
+    
+}
