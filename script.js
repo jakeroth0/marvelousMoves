@@ -680,6 +680,14 @@ var getFeaturedCharacters = function (character) {
 
 userFormEl.addEventListener("submit", formSubmitHandler);
 
+var clickBtn = function() {
+  // document.querySelector("#spidermanBtn")
+  imgIndex = 
+  character = document.getElementsByTagName('img')[imgIndex].alt;
+  console.log(character);
+  getCharacter(character);
+}
+
 // console.log(character);
 // console.log(getFeaturedCharacters);
 
