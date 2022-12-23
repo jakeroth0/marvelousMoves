@@ -576,11 +576,11 @@ var getCharacter = function (character) {
           console.log(data.data.results[0].description);
           var textDescription = document.createElement('div')
           textDescription.textContent = data.data.results[0].description;
-          marvelContainerEl.appendChild(textDescription);
+          marvelContainerEl.appendChild(textDescription).classList.add('marvelDescription');
           var thumbnail = document.createElement('img');
           var thumbnailUrl = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension;
           thumbnail.src = thumbnailUrl;
-          marvelContainerEl.appendChild(thumbnail);
+          marvelContainerEl.appendChild(thumbnail).classList.add('marvelThumbnail');
           
           console.log(data);
           console.log(data.data.results[0].thumbnail.path);
@@ -680,13 +680,67 @@ var getFeaturedCharacters = function (character) {
 
 userFormEl.addEventListener("submit", formSubmitHandler);
 
-var clickBtn = function() {
-  // document.querySelector("#spidermanBtn")
-  imgIndex = 
-  character = document.getElementsByTagName('img')[imgIndex].alt;
+var clickBtn0 = function() {
+  var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
+    while(marvelThumbnail.length > 0) {
+      marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
+        };
+  var marvelDescription = document.getElementsByClassName('marvelDescription');
+    while(marvelDescription.length > 0) {
+      marvelDescription[0].parentNode.removeChild(marvelDescription[0]);
+        };
+
+  character = document.getElementsByTagName('img')[0].alt;
   console.log(character);
   getCharacter(character);
 }
+var clickBtn1 = function() {
+  character = document.getElementsByTagName('img')[1].alt;
+  console.log(character);
+  getCharacter(character);
+}
+var clickBtn2 = function() {
+  character = document.getElementsByTagName('img')[2].alt;
+  console.log(character);
+  getCharacter(character);
+}
+var clickBtn3 = function() {
+  character = document.getElementsByTagName('img')[3].alt;
+  console.log(character);
+  getCharacter(character);
+}
+var clickBtn4 = function() {
+  character = document.getElementsByTagName('img')[4].alt;
+  console.log(character);
+  getCharacter(character);
+}
+var clickBtn5 = function() {
+  character = document.getElementsByTagName('img')[5].alt;
+  console.log(character);
+  getCharacter(character);
+}
+var clickBtn6 = function() {
+  character = document.getElementsByTagName('img')[6].alt;
+  console.log(character);
+  getCharacter(character);
+}
+var clickBtn7 = function() {
+  character = document.getElementsByTagName('img')[7].alt;
+  console.log(character);
+  getCharacter(character);
+}
+var clickBtn8 = function() {
+  character = document.getElementsByTagName('img')[8].alt;
+  console.log(character);
+  getCharacter(character);
+}
+var clickBtn9 = function() {
+  character = document.getElementsByTagName('img')[9].alt;
+  console.log(character);
+  getCharacter(character);
+}
+
+
 
 // console.log(character);
 // console.log(getFeaturedCharacters);
