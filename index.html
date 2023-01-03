@@ -1,60 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>MARVELOUS MOVES</title>
+  </head>
+  <body class="dark: bg-stone-900">
+    <nav class="flex flex-col md:justify-between md:flex-row mb-8">
+      <img
+        class="md:ml-10 md:mt-2 top-0"
+        src="./assets/logoMarvelousMoves.svg"
+        alt=""
+      />
+      <div class="flex flex-col items-center md:flex-row">
+        <a href="https://www.marvel.com/" class="text-stone-100 hover:text-orange-500 my-4 text-xl md:my-10"
+          >Marvel</a
+        >
+        <a href="https://giphy.com/" class="text-stone-100  hover:text-orange-500 mb-4 text-xl md:m-10"
+          >Giphy</a
+        >
+        <img class="md:mr-8 md:scale-100 scale-100" src="./assets/newAdventureBtn.svg" alt="" />
+      </div>
+    </nav>
     <div class="marvel-container">
-        <form id="user-form">
-            <label for="character" class="form-label">character</label>
-            <input name="character" id="character" type="text" autofocus="true" class="form-input" />
-            <button class="btn">Get Character</button>
-        </form>
-        <div class="btn-container">
-            <div class="btn-card">
-                <a id="spidermanBtn">
-                <img class="thumbnailBtn" id="spidermanBtn" onclick= "clickBtn0()" 
-                src="./assets/spiderMan.jpg" alt="spider-man (Ultimate)">
-                </a>
-                <a id="jessicaJonesBtn">
-                    <img class="thumbnailBtn" src="./assets/jessicaJones.png" alt="jessica Jones" onclick= "clickBtn1()">
-                </a>
-                <a id="lukeCageBtn">
-                    <img class="thumbnailBtn" src="./assets/lukeCage.jpeg" id="2" alt="Luke Cage" onclick= "clickBtn2()">
-                </a>
-                <a id="blackPantherBtn">
-                    <img class="thumbnailBtn" src="./assets/blackPanther.webp" alt="Black Panther" onclick= "clickBtn3()">
-                </a>
-                <a id="captainMarvelBtn">
-                    <img class="thumbnailBtn" src="./assets/captainMarvel.jpeg" alt="Captain Marvel" onclick= "clickBtn4()">
-                </a>
-                <a id="magnetoBtn">
-                    <img class="thumbnailBtn" src="./assets/magneto.jpg" alt="Magneto" onclick= "clickBtn5()">
-                </a>
-                <a id="thanosBtn">
-                    <img class="thumbnailBtn" src="./assets/thanos.webp" alt="Thanos" onclick= "clickBtn6()">
-                </a>
-                <a id="lokiBtn">
-                    <img class="thumbnailBtn" src="./assets/loki.jpg" alt="Loki" onclick= "clickBtn7()">
-                </a>
-                <a id="ultronBtn">
-                    <img class="thumbnailBtn" src="./assets/ultron.webp" alt="Ultron" onclick= "clickBtn8()">
-                </a>
-                <a id="galactusBtn">
-                    <img class="thumbnailBtn" src="./assets/galactus.jpg" alt="Galactus" onclick= "clickBtn9()">
-                </a>
-            </div>
+      <form class="hidden" id="user-form">
+        <label for="character" class="form-label">character</label>
+        <input
+          name="character"
+          id="character"
+          type="text"
+          autofocus="true"
+          class="form-input"
+        />
+        <button class="btn">Get Character</button>
+      </form>
+      <div class="flex flex-col-reverse md:flex-row">
+        <div class="flex-col m-0 md:basis-1/2 md:ml-10">
+          <h2 class="subtitle text-center  md:text-left text-stone-100 text-l">
+            <span
+              class="text-stone-100 font-extrabold text-4xl my-10 md:my-10"
+              id="character-search-term"
+            ></span>
+          </h2>
+          <div
+            id="character-container"
+            class="list-group items-center md:items-start flex flex-col-reverse m-2 md:justify-between md:flex-row-reverse text-stone-100 text-l"
+          ></div>
+          <div class="giphyContainer flex flex-row flex-wrap justify-center md:justify-start"></div>
         </div>
+        <div class="btn-container md:basis-1/2 md:mr-6">
+          <div class="btn-card justify-center md:justify-end flex flex-wrap">
+            <a id="spidermanBtn">
+              <img
+                class="thumbnailBtn"
+                id="spidermanBtn"
+                onclick="clickBtn0()"
+                src="./assets/Spiderman thumbnail.svg"
+                alt="spider-man (Ultimate)"
+              />
+            </a>
+            <a id="jessicaJonesBtn">
+              <img
+                class="thumbnailBtn"
+                src="./assets/Jessica Jones thumbnail.svg"
+                alt="jessica Jones"
+                onclick="clickBtn1()"
+              />
+            </a>
+            <a id="lukeCageBtn">
+              <img
+                class="thumbnailBtn"
+                src="./assets/Luke Cage Thumbnail.svg"
+                id="2"
+                alt="Luke Cage"
+                onclick="clickBtn2()"
+              />
+            </a>
+            <a id="blackPantherBtn">
+              <img
+                class="thumbnailBtn"
+                src="./assets/Black Panther thumbnail.svg"
+                alt="Black Panther"
+                onclick="clickBtn3()"
+              />
+            </a>
+            <a id="captainMarvelBtn">
+              <img
+                class="thumbnailBtn"
+                src="./assets/Captain Marvel Thumbnail.svg"
+                alt="Captain Marvel"
+                onclick="clickBtn4()"
+              />
+            </a>
+            <a id="magnetoBtn">
+              <img
+                class="thumbnailBtn"
+                src="./assets/Magneto Thumbnail.svg"
+                alt="Magneto"
+                onclick="clickBtn5()"
+              />
+            </a>
+            <a id="thanosBtn">
+              <img
+                class="thumbnailBtn"
+                src="./assets/Thanos Thumbnail.png"
+                alt="Thanos"
+                onclick="clickBtn6()"
+              />
+            </a>
+            <a id="lokiBtn">
+              <img
+                class="thumbnailBtn"
+                src="./assets/Loki Thumbnail.svg"
+                alt="Loki"
+                onclick="clickBtn7()"
+              />
+            </a>
+            <a id="ultronBtn">
+              <img
+                class="thumbnailBtn"
+                src="./assets/Ultron Thumbnail.svg"
+                alt="Ultron"
+                onclick="clickBtn8()"
+              />
+            </a>
+            <a id="galactusBtn">
+              <img
+                class="thumbnailBtn"
+                src="./assets/Galactus Thumbnail.svg"
+                alt="Galactus"
+                onclick="clickBtn9()"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-        <h2 class="subtitle">Showing Gifs for: <span id="character-search-term"></span></h2>
-        <div id="character-container" class="list-group">description</div>
-    </div>
-<!--     
+
+    <!--     
     <div class="giphy-container">
         <form id="user-form">
             <label for="character" class="form-label">character</label>
@@ -68,6 +153,6 @@
     </div>
     
      -->
-</body>
-<script src="./script.js"></script>
+  </body>
+  <script src="./script.js"></script>
 </html>
