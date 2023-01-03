@@ -515,7 +515,7 @@ var requestUrl =
   "&name=" +
   character;
 
-var giphyApiStart = "http://api.giphy.com/v1/gifs/search?q=";
+var giphyApiStart = "https://api.giphy.com/v1/gifs/search?q=";
 var giphyApiKey = "&api_key=BXBwpXYZHxzCHlnqldjZWRr0jdgEz2nJ";
 var giphyApiLimit = "&limit=15";
 var giphyRequestUrl = giphyApiStart + character + giphyApiKey + giphyApiLimit;
