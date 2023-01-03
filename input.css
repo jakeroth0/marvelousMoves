@@ -40,6 +40,11 @@
     box-shadow: 0 0 29px 9px #e65525;
 }
 
+.grey {
+    filter: gray;
+    filter: grayscale(100%);  
+}
+
 @media only screen and (max-width: 768px) {
     .thumbnailBtn {
         width: 16vw;

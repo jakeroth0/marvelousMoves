@@ -5,6 +5,13 @@ var characterInputEl = document.querySelector("#character");
 var marvelContainerEl = document.querySelector("#character-container");
 var characterSearchTerm = document.querySelector("#character-search-term");
 var giphyContainer = document.querySelector("body > div > div > div:nth-child(1) > div.giphyContainer"); 
+var characterBtnContainer = document.querySelector('#characterBtnContainer');
+var thumbnailBtn = document.querySelectorAll(".thumbnailBtn");
+var modal = document.querySelectorAll("#modal");
+var newAdventureBtn = document.querySelector("#newAdventureBtn");
+var resetLocalBtn = document.querySelector("#resetLocalBtn");
+var cancelBtn = document.querySelector("#cancelBtn");
+var hero = document.querySelector('#hero');
 
 // API Key Hashing
 var marvelApiStart =
@@ -528,6 +535,21 @@ var character = characterInputEl.value.trim();
 //   .then(function (data) {
 //     console.log(data);
 //   });
+// var characterArray = [];
+
+// if (localStorage.getItem('characterList') === null) {
+//   localStorage.setItem('characterList', JSON.stringify(characterArray));
+// } else {
+//   console.log('not null');
+//   var characterArray = JSON.parse(localStorage.getItem('characterList'));
+//   for (let i = 0; i < characterArray.length; i++) {
+//     const element = characterArray[i];
+//     var removeGrey = function () {
+//       thumbnailBtn[i].classList.remove('grey');
+//     };
+//   }
+// }
+
 
 var formSubmitHandler = function (event) {
   event.preventDefault();
@@ -578,6 +600,7 @@ var getCharacter = function (character) {
           var textDescription = document.createElement('div')
           textDescription.textContent = data.data.results[0].description;
           marvelContainerEl.appendChild(textDescription).classList.add('marvelDescription');
+          console.log(textDescription.textContent);
           var thumbnail = document.createElement('img');
           var thumbnailUrl = data.data.results[0].thumbnail.path + '.' + data.data.results[0].thumbnail.extension;
           thumbnail.src = thumbnailUrl;
@@ -683,7 +706,52 @@ var getFeaturedCharacters = function (character) {
 
 userFormEl.addEventListener("submit", formSubmitHandler);
 
+if (localStorage.getItem("Spider-man") !== null ) {
+  var removeGrey = function() {thumbnailBtn[0].classList.remove('grey');};
+  removeGrey();
+}
+if (localStorage.getItem("Jessica Jones") !== null ) {
+  var removeGrey = function() {thumbnailBtn[1].classList.remove('grey');};
+  removeGrey();
+}
+if (localStorage.getItem("Luke Cage") !== null ) {
+  var removeGrey = function() {thumbnailBtn[2].classList.remove('grey');};
+  removeGrey();
+}
+if (localStorage.getItem("Black Panther") !== null ) {
+  var removeGrey = function() {thumbnailBtn[3].classList.remove('grey');};
+  removeGrey();
+}
+if (localStorage.getItem("Captain Marvel") !== null ) {
+  var removeGrey = function() {thumbnailBtn[4].classList.remove('grey');};
+  removeGrey();
+}
+if (localStorage.getItem("Magneto") !== null ) {
+  var removeGrey = function() {thumbnailBtn[5].classList.remove('grey');};
+  removeGrey();
+}
+if (localStorage.getItem("Thanos") !== null ) {
+  var removeGrey = function() {thumbnailBtn[6].classList.remove('grey');};
+  removeGrey();
+}
+if (localStorage.getItem("Loki") !== null ) {
+  var removeGrey = function() {thumbnailBtn[7].classList.remove('grey');};
+  removeGrey();
+}
+if (localStorage.getItem("Ultron") !== null ) {
+  var removeGrey = function() {thumbnailBtn[8].classList.remove('grey');};
+  removeGrey();
+}
+if (localStorage.getItem("Galactus") !== null ) {
+  var removeGrey = function() {thumbnailBtn[9].classList.remove('grey');};
+  removeGrey();
+}
+
+
+
 var clickBtn0 = function() {
+  thumbnailBtn[0].classList.remove('grey');
+  hero.classList.add('hidden');
   var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
     while(marvelThumbnail.length > 0) {
       marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
@@ -694,10 +762,18 @@ var clickBtn0 = function() {
         };
   character = "Spider-man (Ultimate)";
   // character = document.getElementsByTagName('img')[0].alt;
+  localStorage.setItem("Spider-man",JSON.stringify(character));
   console.log(character);
   getCharacter(character);
+
 }
 var clickBtn1 = function() {
+  thumbnailBtn[1].classList.remove('grey');
+  hero.classList.add('hidden');
+  var textDescription = document.createElement('div')
+          textDescription.innerText = 'beep boop';
+          console.log(textDescription)
+          marvelContainerEl.appendChild(textDescription).classList.add('marvelDescription');
   var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
   while(marvelThumbnail.length > 0) {
     marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
@@ -708,10 +784,13 @@ var marvelDescription = document.getElementsByClassName('marvelDescription');
       };
   // character = document.getElementsByTagName('img')[1].alt;
   character = "Jessica Jones";
+  localStorage.setItem("Jessica Jones",JSON.stringify(character));
   console.log(character);
   getCharacter(character);
 }
 var clickBtn2 = function() {
+  thumbnailBtn[2].classList.remove('grey');
+  hero.classList.add('hidden');
   var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
   while(marvelThumbnail.length > 0) {
     marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
@@ -722,10 +801,13 @@ var marvelDescription = document.getElementsByClassName('marvelDescription');
       };
   // character = document.getElementsByTagName('img')[2].alt;
   character = "Luke Cage";
+  localStorage.setItem("Luke Cage",JSON.stringify(character));
   console.log(character);
   getCharacter(character);
 }
 var clickBtn3 = function() {
+  thumbnailBtn[3].classList.remove('grey');
+  hero.classList.add('hidden');
   var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
   while(marvelThumbnail.length > 0) {
     marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
@@ -736,10 +818,13 @@ var marvelDescription = document.getElementsByClassName('marvelDescription');
       };
   // character = document.getElementsByTagName('img')[3].alt;
   character = "Black Panther";
+  localStorage.setItem("Black Panther",JSON.stringify(character));
   console.log(character);
   getCharacter(character);
 }
 var clickBtn4 = function() {
+  thumbnailBtn[4].classList.remove('grey');
+  hero.classList.add('hidden');
   var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
   while(marvelThumbnail.length > 0) {
     marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
@@ -750,10 +835,13 @@ var marvelDescription = document.getElementsByClassName('marvelDescription');
       };
   // character = document.getElementsByTagName('img')[4].alt;
   character = "Captain Marvel";
+  localStorage.setItem("Captain Marvel",JSON.stringify(character));
   console.log(character);
   getCharacter(character);
 }
 var clickBtn5 = function() {
+  thumbnailBtn[5].classList.remove('grey');
+  hero.classList.add('hidden');
   var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
   while(marvelThumbnail.length > 0) {
     marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
@@ -764,10 +852,13 @@ var marvelDescription = document.getElementsByClassName('marvelDescription');
       };
   // character = document.getElementsByTagName('img')[5].alt;
   character = "Magneto";
+  localStorage.setItem("Magneto",JSON.stringify(character));
   console.log(character);
   getCharacter(character);
 }
 var clickBtn6 = function() {
+  thumbnailBtn[6].classList.remove('grey');
+  hero.classList.add('hidden');
   var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
   while(marvelThumbnail.length > 0) {
     marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
@@ -778,10 +869,13 @@ var marvelDescription = document.getElementsByClassName('marvelDescription');
       };
   // character = document.getElementsByTagName('img')[6].alt;
   character = "Thanos";
+  localStorage.setItem("Thanos",JSON.stringify(character));
   console.log(character);
   getCharacter(character);
 }
 var clickBtn7 = function() {
+  thumbnailBtn[7].classList.remove('grey');
+  hero.classList.add('hidden');
   var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
   while(marvelThumbnail.length > 0) {
     marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
@@ -792,10 +886,13 @@ var marvelDescription = document.getElementsByClassName('marvelDescription');
       };
   // character = document.getElementsByTagName('img')[7].alt;
   character = "Loki";
+  localStorage.setItem("Loki",JSON.stringify(character));
   console.log(character);
   getCharacter(character);
 }
 var clickBtn8 = function() {
+  thumbnailBtn[8].classList.remove('grey');
+  hero.classList.add('hidden');
   var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
   while(marvelThumbnail.length > 0) {
     marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
@@ -806,10 +903,13 @@ var marvelDescription = document.getElementsByClassName('marvelDescription');
       };
   // character = document.getElementsByTagName('img')[8].alt;
   character = "Ultron";
+  localStorage.setItem("Ultron",JSON.stringify(character));
   console.log(character);
   getCharacter(character);
 }
 var clickBtn9 = function() {
+  thumbnailBtn[9].classList.remove('grey');
+  hero.classList.add('hidden');
   var marvelThumbnail = document.getElementsByClassName('marvelThumbnail');
   while(marvelThumbnail.length > 0) {
     marvelThumbnail[0].parentNode.removeChild(marvelThumbnail[0]);
@@ -820,10 +920,23 @@ var marvelDescription = document.getElementsByClassName('marvelDescription');
       };
   // character = document.getElementsByTagName('img')[9].alt;
   character = "Galactus";
+  localStorage.setItem("Galactus",JSON.stringify(character));
   console.log(character);
   getCharacter(character);
 }
 
+var showModal = function() {
+  modal[0].classList.remove('hidden');
+}
+
+cancelBtn.onclick = function() {
+  modal[0].classList.add('hidden');
+}
+
+resetLocalBtn.onclick = function() {
+  localStorage.clear();
+  window.location.reload();
+}
 
 
 // console.log(character);
