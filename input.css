@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .thumbnailBtn {
+    height: 200px;
+    width: 200px;
+    filter: grayscale(100%);
+}
+.thumbnailBtn:hover {
+    filter: grayscale(0%);
+    border: 5px solid red;
+    
+} */
+.marvelThumbnail {
+    height: 45%;
+    width: 45%;
+    flex-basis: 50%;
+}
+
+.marvelDescription {
+    flex-basis: 45%;
+}
+
+.giphyGifs {
+    margin: 8px;
+    height: 200px;
+}
+
+.thumbnailBtn {
+    width: 6vw;
+    margin: 2vw;
+}
+
+.thumbnailBtn:hover {
+    background: linear-gradient(148.59deg, #C32A3A 52.93%, #E98034 93.77%);
+    /* box-shadow: 0px 0px 29px #E98034; */
+    background-color: #e65525;
+    border-radius:50%;
+    box-shadow: 0 0 29px 9px #e65525;
+}
+
+.grey {
+    filter: gray;
+    filter: grayscale(100%);  
+}
+
+@media only screen and (max-width: 768px) {
+    .thumbnailBtn {
+        width: 16vw;
+        margin: 2vw;
+    }
+    
+    .marvelThumbnail {
+        height: 90%;
+        width: 90%;
+        flex-basis: 50%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .marvelDescription {
+        flex-basis: 45%;
+        text-align: center;
+    }
+}
